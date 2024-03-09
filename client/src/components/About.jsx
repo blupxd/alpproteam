@@ -62,7 +62,7 @@ const About = () => {
   };
 
   return (
-    <div id='o-nama' className='m-12 flex flex-col'>
+    <div id='o-nama' className='m-0 md:m-12 flex flex-col'>
         
       <div className='grid grid-cols-1 md:grid-cols-2 shadow-lg border border-gray-300 rounded-t-[10px] overflow-hidden'>
         <div className='flex flex-col px-8 py-12 md:p-12 bg-white'>

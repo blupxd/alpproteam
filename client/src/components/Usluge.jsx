@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 const Usluge = () => {
     const dispatch = useDispatch()
   return (
-      <div id="usluge" className='bg-gray-300 px-8 py-12 md:p-12 rounded-lg shadow-md shadow-black/20 my-48 mx-12 flex flex-col justify-center items-center'>
+      <div id="usluge" className='bg-gray-300 px-4 py-12 md:p-12 rounded-lg shadow-md shadow-black/20 my-48 mx-0 md:mx-12 flex flex-col justify-center items-center'>
         <h1 className='text-7xl md:text-left text-center font-bold text-blue-500 mb-12'>NAŠE USLUGE</h1>
         <div className='grid grid-cols-1 md:grid-cols-3 m-0 md:m-8 gap-4'>
             {poslovi &&

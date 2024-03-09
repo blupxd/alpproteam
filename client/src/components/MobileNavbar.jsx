@@ -20,13 +20,13 @@ const MobileNavbar = () => {
 
   return (
     <div style={{ zIndex: 100 }} className='top-0 h-0 lg:hidden fixed w-full'>
-      <div className='relative z-10 flex flex-col items-center border-b border-blue-300 py-2 bg-white justify-center w-full'>
+      <div className='relative z-10 flex flex-col items-center border-b border-blue-300 py-5 bg-white justify-center w-full'>
         <div className='bg-blue-600 px-12 py-2'>
           <h1 className='text-white font-bold'>ALP-PRO Team</h1>
         </div>
         <button
           style={{ transform: `rotate(${menu ? '90deg' : '0deg'})`}}
-          className={`transition-transform duration-200 absolute right-4 text-blue-700 text-4xl`}
+          className={`transition-transform duration-200 absolute right-4 text-blue-700 text-5xl`}
           onClick={() => setMenu(!menu)}
         >
           {menu ? <FontAwesomeIcon icon={faClose} /> : <FontAwesomeIcon icon={faBars} />}
