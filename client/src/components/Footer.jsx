@@ -47,10 +47,10 @@ const Footer = () => {
             <h1 className='text-lg text-white border-b-[2px] border-blue-500 pb-1'>Mreže</h1>
             <ul className='flex flex-col text-center text-xs gap-4 p-6 '>
                 <li className=' link-underline'>
-                    <a href='https://www.instagram.com/'>Tiktok <FontAwesomeIcon icon={faInstagram} /></a>
+                    <a href='https://www.instagram.com/'>Instagram <FontAwesomeIcon icon={faInstagram} /></a>
                 </li>
                 <li className=' link-underline'>
-                    <a href='https://www.facebook.com/'>Instagram <FontAwesomeIcon icon={faFacebook} /></a>
+                    <a href='https://www.facebook.com/'>Facebook <FontAwesomeIcon icon={faFacebook} /></a>
                 </li>
             </ul>
         </div>
