@@ -12,7 +12,7 @@ const Hero = () => {
                 <h3 className='w-96 md:border-b-0 md:border-l-[4px] pb-4 pl-0 md:pl-4 border-amber-500 text-gray-600 font-light text-3xl md:text-2xl'>
                     Visoko iznad očekivanja! Profesionalni alpinistički rad, jer svaki vrhunski detalj čini razliku.
                 </h3>
-                <div className='flex flex-row mt-14 gap-4 items-center'>
+                <div className='flex flex-row mt-14 gap-4 mb-14 items-center'>
                     <a
                         href="/#kontakt"
                         className='text-xl px-8 py-2 rounded-md text-white bg-amber-500 border border-amber-500 hover:bg-white hover:border-amber-400 hover:text-amber-500 transition duration-300'
