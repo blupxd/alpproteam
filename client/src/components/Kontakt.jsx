@@ -9,9 +9,9 @@ const Kontakt = () => {
     <div id="kontakt" className='flex flex-col relative pb-[42rem] md:pb-96'>
       <div className='bg-blue-500 grid relative grid-cols-1 md:grid-cols-2 h-[30rem] overflow-hidden'>
         <div className='flex flex-col items-center md:items-start gap-2 py-24 px-12 text-center md:text-left'>
-          <h1 className='text-5xl font-semibold text-blue-950'>Kontaktirajte nas</h1>
+          <h1 className='text-6xl md:text-5xl lg:text-6xl font-semibold text-gray-800'>Kontaktirajte nas</h1>
           <hr className='w-12 hidden md:inline-block border-[2px] border-amber-500'/>
-          <p className='text-lg w-96 text-white font-thin text-center md:text-justify'>Ukoliko želite da sarađujete sa nama, evo načina na koje možete stupiti u kontakt.</p>
+          <p className='text-2xl mt-6 w-96 md:w-64 lg:w-96 text-white text-center md:text-justify'>Ukoliko želite da sarađujete sa nama, evo načina na koje možete stupiti u kontakt.</p>
         </div>
         <div className='hidden md:inline-block overflow-hidden'>
           <img src={image} alt="" className='rounded-tl-[30%] w-full object-cover rounded-bl-[70%]' />
