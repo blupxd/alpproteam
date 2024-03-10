@@ -23,7 +23,7 @@ const Kontakt = () => {
           zIndex: 30
         }}
         className='grid grid-cols-1 md:grid-cols-2 mx-4 md:mx-12 absolute bottom-0 md:bottom-32 right-0 left-0 gap-4'>
-        <div className='p-12 bg-gray-200 shadow-md flex flex-col gap-4 items-center justify-center shadow-black/30'>
+        <div className='p-12 bg-white border border-gray-200  shadow-md flex flex-col gap-4 items-center justify-center shadow-black/30'>
         <FontAwesomeIcon icon={faPhone} className='text-5xl text-gray-800' />
         <h1 className='text-xl text-center my-6 font-semibold text-gray-800'>Putem telefona</h1>
         <p className='w-64 text-center'>Zainteresovani ste za naše usluge? Nazovite nas na naš broj.</p>
