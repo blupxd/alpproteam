@@ -7,7 +7,7 @@ import { Reveal } from './Reveal.tsx';
 
 const Kontakt = () => {
   return (
-    <div id="kontakt" className='flex flex-col relative pb-[42rem] md:pb-96'>
+    <div id="kontakt" className='flex flex-col relative pb-[42rem] md:pb-96 mb-24'>
       <div className='bg-blue-500 grid relative grid-cols-1 md:grid-cols-2 h-[30rem] overflow-hidden'>
         <Reveal>
         <div className='flex flex-col items-center md:items-start gap-2 py-24 px-12 text-center md:text-left'>
