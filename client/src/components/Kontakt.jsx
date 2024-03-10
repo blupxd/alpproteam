@@ -34,7 +34,7 @@ const Kontakt = () => {
             +381 61 1234 567
         </a>
         </div>
-        <div className='p-12 bg-gray-200 shadow-md flex flex-col gap-4 items-center justify-center shadow-black/30'>
+        <div className='p-12 bg-white border border-gray-200 shadow-md flex flex-col gap-4 items-center justify-center shadow-black/30'>
         <FontAwesomeIcon icon={faEnvelope} className='text-5xl text-gray-800' />
         <h1 className='text-xl text-center my-6 font-semibold text-gray-800'>Putem mail-a</h1>
         <p className='w-64 text-center'>Zainteresovani ste za naše usluge? Pišite nam na naš mejl</p>
