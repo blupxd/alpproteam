@@ -6,7 +6,6 @@ import 'slick-carousel/slick/slick-theme.css';
 import poslovi from '../poslovi.json';
 import { upaliGaleriju } from '../actions/galerijaAction';
 import { useDispatch } from 'react-redux';
-
 const About = () => {
   const dispatch = useDispatch();
 
@@ -21,7 +20,7 @@ const About = () => {
 
     return (
       <div>
-        <div style={cardStyle} className='mx-2 md:mx-12 relative text-center p-4 border-gray-600 border h-40 flex flex-col'>
+        <div style={cardStyle} className='mx-2 md:mx-12 relative text-center px-4 py-12 border-gray-600 border flex flex-col'>
           <div className='z-10'>
             <h1 className='text-2xl text-white h-20'>{naslov}</h1>
             <button
@@ -39,7 +38,6 @@ const About = () => {
       </div>
     );
   };
-
   const settings = {
     dots: true,
     infinite: true,
@@ -61,6 +59,8 @@ const About = () => {
     ],
   };
 
+ 
+
   return (
     <div id='o-nama' className='m-0 md:m-12 flex flex-col'>
         
@@ -78,7 +78,7 @@ const About = () => {
           <img src={image} alt='image3' className='object-cover w-full opacity-70' />
         </div>
       </div>
-      <div className='bg-amber-500 gap-12 py-12 px-12 md:px-24 lg:px-32'>
+      <div className='bg-gray-200 py-12 px-12 md:px-24 lg:px-32'>
         <Slider {...settings}>
           {poslovi.map((pos, index) => workCard(pos.posao, pos.link, image, index))}
         </Slider>

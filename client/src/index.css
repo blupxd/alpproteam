@@ -6,7 +6,12 @@
 html{
   scroll-behavior: smooth;
 }
-
+.slick-prev:before,
+.slick-next:before {
+  color: black!important;
+  font-size: 20px!important;
+  padding: 0!important;
+}
 body {
   margin: 0;
   font-family: "Kanit", sans-serif;
