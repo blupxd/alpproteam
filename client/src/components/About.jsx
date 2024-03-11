@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import image from '../images/image1.jpg';
 import Slider from 'react-slick';
 import { Reveal } from './Reveal.tsx';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import poslovi from '../poslovi.json';
 import { upaliGaleriju } from '../actions/galerijaAction';
 import { useDispatch } from 'react-redux';
+import axios from 'axios'
 const About = () => {
   const dispatch = useDispatch();
+  const [poslovi, setPoslovi] = useState([])
 
-  const workCard = (naslov, nav, image) => {
+  const workCard = (naziv, desc, image) => {
     const cardStyle = {
       backgroundImage: `url(${image})`,
       backgroundSize: 'cover',
@@ -23,10 +24,10 @@ const About = () => {
       <div>
         <div style={cardStyle} className='mx-2 md:mx-12 relative text-center px-4 py-12 border-gray-600 border flex flex-col'>
           <div className='z-10'>
-            <h1 className='text-2xl text-white h-20'>{naslov}</h1>
+            <h1 className='text-2xl text-white h-20'>{naziv}</h1>
             <button
               onClick={() => {
-                dispatch(upaliGaleriju(nav));
+                dispatch(upaliGaleriju(naziv));
               }}
               className='px-6 py-2 text-white font-semibold border-white border-[2px] hover:bg-white hover:text-gray-950 transition duration-300'
             >
@@ -42,14 +43,14 @@ const About = () => {
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 2,
+    slidesToShow: 1,
     slidesToScroll: 1,
     speed: 800,
     autoplay: true,
     autoplaySpeed: 5000,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -60,7 +61,17 @@ const About = () => {
     ],
   };
 
- 
+  useEffect(() => {
+    const fetchPoslovi = async () => {
+      try {
+          const response = await axios.get('http://localhost:5000/posao');
+          setPoslovi(response.data);
+      } catch (error) {
+          console.error(error);
+      }
+  };
+  fetchPoslovi()
+  }, [])
 
   return (
     <div id='o-nama' className='m-0 md:m-12 flex flex-col'>
@@ -89,7 +100,7 @@ const About = () => {
       <Reveal>
         <div className='bg-gray-200 py-12 px-12 md:px-24 lg:px-32'>
           <Slider {...settings}>
-            {poslovi.map((pos, index) => workCard(pos.posao, pos.link, image, index))}
+            {poslovi.map((pos, index) => workCard(pos.naziv, pos.naziv, pos.slika, index))}
           </Slider>
         </div>
       </Reveal>
