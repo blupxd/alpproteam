@@ -13,7 +13,7 @@ const DodajSlikuForma = ({onSlika}) => {
     useEffect(() => {
         const fetchPoslovi = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/posao');
+                const response = await axios.get('https://alpproteam.vercel.app/posao');
                 setPoslovi(response.data);
             } catch (error) {
                 console.error(error);
@@ -36,7 +36,7 @@ const DodajSlikuForma = ({onSlika}) => {
             formData.append('posao', selectedPosao);
             formData.append('filename', selectedFile);
 
-            await axios.post('http://localhost:5000/galerija', formData, {
+            await axios.post('https://alpproteam.vercel.app/galerija', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

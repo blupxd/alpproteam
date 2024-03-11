@@ -22,7 +22,7 @@ const DodajPosaoForma = ({onDodaj}) => {
       formData.append('opis', opis);
       formData.append('filename', slika);
       
-        await axios.post('http://localhost:5000/posao', formData, {
+        await axios.post('https://alpproteam.vercel.app/posao', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

@@ -20,7 +20,7 @@ const Galerija = () => {
         }
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/galerija');
+                const response = await axios.get('https://alpproteam.vercel.app/galerija');
                 setSlike(response.data);
             } catch (error) {
                 console.error(error);
@@ -29,7 +29,7 @@ const Galerija = () => {
 
         const fetchPoslovi = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/posao');
+                const response = await axios.get('https://alpproteam.vercel.app/posao');
                 setPoslovi(response.data);
             } catch (error) {
                 console.error(error);

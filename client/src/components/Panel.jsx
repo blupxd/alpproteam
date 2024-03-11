@@ -54,10 +54,10 @@ const Panel = () => {
   };
   const fetchData = async () => {
     try {
-      const responseSlike = await axios.get('http://localhost:5000/galerija');
+      const responseSlike = await axios.get('https://alpproteam.vercel.app/galerija');
       setSlike(responseSlike.data);
 
-      const responsePoslovi = await axios.get('http://localhost:5000/posao');
+      const responsePoslovi = await axios.get('https://alpproteam.vercel.app/posao');
       setPoslovi(responsePoslovi.data);
     } catch (error) {
       console.error(error);
@@ -69,8 +69,8 @@ const Panel = () => {
 
   const handleConfirmDelete = async () => {
     try {
-      await axios.delete(`http://localhost:5000/posao/${deletePosaoId}`);
-      const responsePoslovi = await axios.get('http://localhost:5000/posao');
+      await axios.delete(`https://alpproteam.vercel.app/posao/${deletePosaoId}`);
+      const responsePoslovi = await axios.get('https://alpproteam.vercel.app/posao');
       setPoslovi(responsePoslovi.data);
     } catch (error) {
       console.error(error);
@@ -82,8 +82,8 @@ const Panel = () => {
 
   const handleConfirmDeleteSlika = async () => {
     try {
-      await axios.delete(`http://localhost:5000/galerija/${deleteSlikaId}`);
-      const responseSlike = await axios.get('http://localhost:5000/galerija');
+      await axios.delete(`https://alpproteam.vercel.app/galerija/${deleteSlikaId}`);
+      const responseSlike = await axios.get('https://alpproteam.vercel.app/galerija');
       setSlike(responseSlike.data);
     } catch (error) {
       console.error(error);
@@ -99,7 +99,7 @@ const Panel = () => {
   };
   const handleConfirmEditSlika = async (editedSlika) => {
     try {
-      await axios.put(`http://localhost:5000/galerija/${editedSlika._id}`, editedSlika);
+      await axios.put(`https://alpproteam.vercel.app/galerija/${editedSlika._id}`, editedSlika);
       // Add any additional logic if needed
     } catch (error) {
       console.error(error);

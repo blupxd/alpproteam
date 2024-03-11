@@ -12,7 +12,7 @@ const Usluge = () => {
     useEffect(() => {
         const fetchPoslovi = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/posao');
+                const response = await axios.get('https://alpproteam.vercel.app/posao');
                 setPoslovi(response.data);
             } catch (error) {
                 console.error(error);

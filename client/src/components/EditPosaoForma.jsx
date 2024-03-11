@@ -31,7 +31,7 @@ const EditPosaoForma = ({ selectedPosao, onClose, onEdit }) => {
       formData.append('filename', slika);
 
       const response = await axios.put(
-        `http://localhost:5000/posao/${selectedPosao._id}`,
+        `https://alpproteam.vercel.app/posao/${selectedPosao._id}`,
         formData,
         {
           headers: {
