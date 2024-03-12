@@ -13,8 +13,8 @@ const app = express();
 
 app.use(cors());
 app.use(upload.any());
-app.use(express.json({limit: '50mb'}));
-app.use(express.urlencoded({limit: '50mb'}));
+app.use(express.json({ limit: '50mb' })); // Postavite limit za JSON podatke
+app.use(express.urlencoded({ limit: '50mb', extended: true })); // Postavite limit za URL-kodirane podatke
 
 app.use('/posao', posaoRoute);
 app.use('/auth', authRoute);
