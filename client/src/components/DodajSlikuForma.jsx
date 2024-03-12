@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
-const DodajSlikuForma = ({onSlika}) => {
-    const [poslovi, setPoslovi] = useState([]);
+const DodajSlikuForma = ({onSlika, prviPoslovi}) => {
+    const [poslovi, setPoslovi] = useState(prviPoslovi);
     const [selectedPosao, setSelectedPosao] = useState('');
     const [selectedFile, setSelectedFile] = useState(null);
     const [error, setError] = useState(null);
@@ -39,6 +39,7 @@ const DodajSlikuForma = ({onSlika}) => {
             await axios.post('https://alpproteam.vercel.app/galerija', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
+                    Authorization: `Bearer ${localStorage.getItem('user')}`
                 },
             });
 

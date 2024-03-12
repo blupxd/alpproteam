@@ -31,19 +31,18 @@ const Usluge = () => {
                 poslovi.map((posao, key) => (
                 <Reveal key={key}>
                 <div className='bg-blue-950 border border-blue-300 p-8 flex flex-col items-center justify-center text-white text-center w-full shadow-md'>
-                    <FontAwesomeIcon icon={faPaintRoller} size="3x" className='p-4 rounded-full border-amber-500 border text-amber-500'/>
-                    <h1 className='text-2xl my-4 h-18 md:h-24'>{posao.naziv}</h1>
-                    <p className='font-light h-16 w-32 text-center break-words'>{posao.opis}</p>
-                    <div className='flex-grow' />
+                    <h1 className='text-3xl my-4 font-bold'>{posao.naziv}</h1>
+                    <p className='font-light w-80 p-4 text-sm text-center break-words'>{posao.opis}</p>
                     <button
-                    onClick={() => {
-                        dispatch(upaliGaleriju(posao.naziv))
-                    }} 
-                    className='mt-5 text-white font-light text-center px-4 py-2 bg-amber-500 inline-block'
+                        onClick={() => {
+                            dispatch(upaliGaleriju(posao.naziv))
+                        }} 
+                        className='mt-4 text-white font-light text-center px-6 py-3 bg-amber-500 rounded-md'
                     >
-                    GALERIJA
+                        Pogledaj galeriju
                     </button>
                 </div>
+
                 </Reveal>
 
             ))}

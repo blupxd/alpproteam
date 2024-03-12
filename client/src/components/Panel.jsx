@@ -69,7 +69,11 @@ const Panel = () => {
 
   const handleConfirmDelete = async () => {
     try {
-      await axios.delete(`https://alpproteam.vercel.app/posao/${deletePosaoId}`);
+      await axios.delete(`https://alpproteam.vercel.app/posao/${deletePosaoId}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('user')}`
+        }
+      });
       const responsePoslovi = await axios.get('https://alpproteam.vercel.app/posao');
       setPoslovi(responsePoslovi.data);
     } catch (error) {
@@ -82,7 +86,11 @@ const Panel = () => {
 
   const handleConfirmDeleteSlika = async () => {
     try {
-      await axios.delete(`https://alpproteam.vercel.app/galerija/${deleteSlikaId}`);
+      await axios.delete(`https://alpproteam.vercel.app/galerija/${deleteSlikaId}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('user')}`
+        }
+      });
       const responseSlike = await axios.get('https://alpproteam.vercel.app/galerija');
       setSlike(responseSlike.data);
     } catch (error) {
@@ -99,7 +107,11 @@ const Panel = () => {
   };
   const handleConfirmEditSlika = async (editedSlika) => {
     try {
-      await axios.put(`https://alpproteam.vercel.app/galerija/${editedSlika._id}`, editedSlika);
+      await axios.put(`https://alpproteam.vercel.app/galerija/${editedSlika._id}`, editedSlika, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('user')}`
+        }
+      });
       // Add any additional logic if needed
     } catch (error) {
       console.error(error);
@@ -202,23 +214,21 @@ const Panel = () => {
         </div>
       )}
 
-      <div className='flex items-center p-6 md:p-24 gap-6 md:gap-24 justify-center flex-col'>
+      <div className='flex items-center p-6 md:p-24 gap-6 md:gap-12 justify-center flex-col'>
         <h1 className='text-3xl md:text-5xl text-white'>Admin Panel</h1>
-            <div className='fixed top-4 right-4'>
             <button
             onClick={handleLogout}
             className='text-white px-4 py-2 bg-red-600 rounded-md hover:bg-red-700'
             >
             Odjavi se
             </button>
-        </div>
-        <div className='flex flex-col gap-4 min-w-0'>
+        <div className='flex flex-col gap-4 min-w-0 w-full'>
           <h1 className='text-white text-xl md:text-3xl'>Poslovi:</h1>
           <DodajPosaoForma onDodaj={() => fetchData()} />
 
           {poslovi && poslovi.map((posao, key) => (
-            <div key={key} className=' min-w-0 text-white mx-auto font-light bg-black py-2 px-4 grid grid-cols-3 lg:grid-cols-5 items-center gap-4 md:gap-2 w-full'>
-              <div className='w-32 flex items-center h-8 overflow-hidden'>
+            <div key={key} className=' min-w-0 text-white mx-auto font-light bg-black py-2 px-4 grid grid-cols-1 lg:grid-cols-5 items-center gap-4 md:gap-2 w-full'>
+              <div className='w-full lg:w-32 flex items-center h-24 lg:h-8 overflow-hidden'>
                 <img src={posao.slika} className='w-full h-full object-cover' alt={posao.naziv} />
               </div>
               <h1 className='text-blue-500 flex items-center gap-2 w-full overflow-hidden '>
@@ -226,13 +236,11 @@ const Panel = () => {
               </h1>
               <p className='text-left flex  min-w-0 items-center truncate gap-2 text-sm sm:text-base text-gray-200'>
                 <span className='text-gray-200'>opis: </span>{posao.opis}
-                </p>
-
-
-              <h1 className='flex items-center col-span-2 lg:col-span-1  text-xs gap-2'>
+              </p>
+              <h1 className='flex items-center text-xs gap-2'>
                 <span className='text-sm text-gray-200'>id: </span>{posao._id}
               </h1>
-              <div className='flex flex-row items-center gap-4 md:gap-12'>
+              <div className='flex flex-row ml-0 lg:ml-10 items-center gap-4 md:gap-4'>
                 <button onClick={() => handleEditPosao(posao)} className='text-black px-2 md:px-4 py-1 md:py-2 bg-white'>
                   <FontAwesomeIcon icon={faPencil} />
                 </button>
@@ -243,9 +251,9 @@ const Panel = () => {
             </div>
           ))}
 
-          <h1 className='text-white text-xl md:text-3xl'>Slike: </h1>
-          <DodajSlikuForma onSlika={() => fetchData()}/>
-          <div className='grid h-96 overflow-auto grid-cols-1 md:grid-cols-3 gap-6 p-6 md:p-12 border border-gray-800 rounded-lg'>
+          <h1 className='text-white text-xl md:text-3xl mt-24'>Slike: </h1>
+          <DodajSlikuForma prviPoslovi={poslovi} onSlika={() => fetchData()}/>
+          <div className='grid h-96 overflow-auto grid-cols-1 md:grid-cols-3 gap-6 p-6 md:p-4 border border-gray-800 rounded-lg'>
             {slike &&
               slike.map((slika, key) => (
                 <div key={key} className='w-full h-64 relative overflow-hidden mb-6'>

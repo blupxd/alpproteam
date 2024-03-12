@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const DodajPosaoForma = ({onDodaj}) => {
+const DodajPosaoForma = ({ onDodaj }) => {
   const [naziv, setNaziv] = useState('');
   const [opis, setOpis] = useState('');
   const [slika, setSlika] = useState(null);
   const [uspeh, setUspeh] = useState('');
   const [greska, setGreska] = useState('');
-
+  const [dugmeOnemoguceno, setDugmeOnemoguceno] = useState(false); // Dodajte stanje za onemogućavanje dugmeta
 
   const handleDodajPosao = async () => {
     try {
@@ -16,35 +16,39 @@ const DodajPosaoForma = ({onDodaj}) => {
         setUspeh('');
         return;
       }
-  
+
+      setDugmeOnemoguceno(true); // Onemogući dugme prilikom slanja zahteva
+
       const formData = new FormData();
       formData.append('naziv', naziv);
       formData.append('opis', opis);
       formData.append('filename', slika);
-      
-        await axios.post('https://alpproteam.vercel.app/posao', formData, {
+
+      await axios.post('https://alpproteam.vercel.app/posao', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${localStorage.getItem('user')}`,
         },
       });
-  
+
       setUspeh('Uspešno ste dodali posao!');
       setGreska('');
       setNaziv('');
       setOpis('');
       setSlika(null);
-      onDodaj()
+      onDodaj();
       document.getElementById('slika').value = null;
     } catch (error) {
       setUspeh('');
       setGreska('Došlo je do greške prilikom dodavanja posla.');
       console.error(error);
+    } finally {
+      setDugmeOnemoguceno(false); // Omogući dugme nakon završetka zahteva, bez obzira na ishod
     }
   };
-  
 
   return (
-    <div className='bg-gray-950 rounded-md'>
+    <div className='bg-gray-950 rounded-md w-full'>
       <h1 className='text-white text-xl mb-4'>Dodaj novi posao:</h1>
       {uspeh && <p className='text-green-500'>{uspeh}</p>}
       {greska && <p className='text-red-500'>{greska}</p>}
@@ -86,11 +90,11 @@ const DodajPosaoForma = ({onDodaj}) => {
         <button
           type='button'
           onClick={handleDodajPosao}
-          className='text-white bg-green-500 p-2 rounded-md'
+          className={`text-white bg-green-500 p-2 rounded-md ${dugmeOnemoguceno ? 'cursor-not-allowed bg-gray-500' : ''}`}
+          disabled={dugmeOnemoguceno}
         >
           Dodaj posao
         </button>
-
       </form>
     </div>
   );

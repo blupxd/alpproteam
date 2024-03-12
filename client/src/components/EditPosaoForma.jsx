@@ -5,18 +5,40 @@ const EditPosaoForma = ({ selectedPosao, onClose, onEdit }) => {
   const [naziv, setNaziv] = useState('');
   const [opis, setOpis] = useState('');
   const [slika, setSlika] = useState(null);
+  const [previewSlika, setPreviewSlika] = useState(null); 
   const [uspeh, setUspeh] = useState('');
   const [greska, setGreska] = useState('');
+  const [dugmeOnemoguceno, setDugmeOnemoguceno] = useState(false);
 
   useEffect(() => {
-    // Postavite vrednosti stanja na osnovu izabranog posla
     if (selectedPosao) {
       setNaziv(selectedPosao.naziv);
       setOpis(selectedPosao.opis);
       setSlika(selectedPosao.slika);
+      setPreviewSlika(selectedPosao.slika);
     }
   }, [selectedPosao]);
 
+
+  const handleInputChange = (e) => {
+    const { name, value, files } = e.target;
+  
+    if (name === 'slika' && files && files.length > 0) {
+      setSlika(files[0]);
+      setPreviewSlika(URL.createObjectURL(files[0]));
+    } else if (name !== 'slika') {
+      if (!dugmeOnemoguceno) {
+        if (name === 'naziv') {
+          setNaziv(value);
+        } else if (name === 'opis') {
+          setOpis(value);
+        }
+      }
+    }
+  
+    setGreska('');
+    setUspeh('');
+  };
   const handleEditPosao = async () => {
     try {
       if (!naziv || !opis) {
@@ -24,29 +46,34 @@ const EditPosaoForma = ({ selectedPosao, onClose, onEdit }) => {
         setUspeh('');
         return;
       }
-
+  
+      setDugmeOnemoguceno(true);
+  
       const formData = new FormData();
       formData.append('naziv', naziv);
       formData.append('opis', opis);
       formData.append('filename', slika);
-
+  
       const response = await axios.put(
         `https://alpproteam.vercel.app/posao/${selectedPosao._id}`,
         formData,
         {
           headers: {
             'Content-Type': 'multipart/form-data',
+            Authorization: `Bearer ${localStorage.getItem('user')}`
           },
         }
       );
-
-      onEdit(response.data); // Pozovite callback funkciju nakon uspešnog editovanja
+  
+      onEdit(response.data);
       setUspeh('Uspešno ste editovali posao!');
       setGreska('');
     } catch (error) {
       setUspeh('');
       setGreska('Došlo je do greške prilikom editovanja posla.');
       console.error(error);
+    } finally {
+      setDugmeOnemoguceno(false);
     }
   };
 
@@ -64,8 +91,9 @@ const EditPosaoForma = ({ selectedPosao, onClose, onEdit }) => {
             type='text'
             id='naziv'
             value={naziv}
-            onChange={(e) => setNaziv(e.target.value)}
+            onChange={(e) => handleInputChange(e)}
             className='p-2 border rounded-md w-full'
+            name='naziv'
           />
         </div>
 
@@ -80,8 +108,9 @@ const EditPosaoForma = ({ selectedPosao, onClose, onEdit }) => {
             }}
             id='opis'
             value={opis}
-            onChange={(e) => setOpis(e.target.value)}
+            onChange={(e) => handleInputChange(e)}
             className='p-2 border focus:outline-none rounded-md w-full'
+            name='opis'
           />
         </div>
         <div className='mb-4'>
@@ -91,18 +120,20 @@ const EditPosaoForma = ({ selectedPosao, onClose, onEdit }) => {
           <input
             type='file'
             id='slika'
-            onChange={(e) => setSlika(e.target.files[0])}
+            onChange={(e) => handleInputChange(e)}
             className='p-2 border text-white rounded-md w-full'
+            name='slika'
           />
         </div>
         <div className='mb-4 w-full h-32 overflow-hidden'>
-          <img src={slika} className='w-full h-full object-cover' alt={naziv} />
+          <img src={previewSlika} className='w-full h-full object-cover' alt={naziv} />
         </div>
         <div className='flex justify-end'>
           <button
             type='button'
             onClick={handleEditPosao}
-            className='text-white bg-green-500 p-2 rounded-md'
+            className={`text-white p-2 rounded-md ${dugmeOnemoguceno ? 'bg-gray-500 cursor-not-allowed' : 'bg-green-500'}`}
+            disabled={dugmeOnemoguceno}
           >
             Sačuvaj izmene
           </button>
