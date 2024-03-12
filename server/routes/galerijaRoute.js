@@ -10,9 +10,10 @@ const router = express.Router();
 firebase.initializeApp(config);
 const storage = getStorage();
 
-const upload = multer({ storage: multer.memoryStorage() });
-
-router.use(express.json());
+const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 * 1024 * 1024 } });
+router.use(upload.any())
+router.use(express.json({ limit: '5mb' }));
+router.use(express.urlencoded({ limit: '5mb', extended: true }));
 
 function verifyToken(req, res, next) {
     const authHeader = req.headers['authorization'];
