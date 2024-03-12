@@ -16,7 +16,8 @@ app.use('/posao', posaoRoute);
 app.use('/auth', authRoute)
 app.use('/galerija', galerijaRoute)
 app.use(upload.any()); 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.json({ limit: '5mb' }));
+app.use(express.urlencoded({ limit: '5mb', extended: true }));
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log("Successfully connected to DB");
