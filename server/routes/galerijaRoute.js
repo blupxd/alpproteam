@@ -12,8 +12,8 @@ const storage = getStorage();
 
 const upload = multer({ storage: multer.memoryStorage() });
 
-app.use(express.json({ limit: '5mb' }));
-app.use(express.urlencoded({ limit: '5mb', extended: true }));
+router.use(express.json({ limit: '5mb' }));
+router.use(express.urlencoded({ limit: '5mb', extended: true }));
 
 function verifyToken(req, res, next) {
     const authHeader = req.headers['authorization'];
