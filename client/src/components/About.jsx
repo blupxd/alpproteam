@@ -82,10 +82,10 @@ const About = () => {
           <h1 className='text-4xl md:text-5xl lg:text-6xl text-blue-500 font-semibold'>ALP-PRO Team</h1>
           <hr className='w-20 border-[2px] border-amber-500 mt-4' />
           <Reveal>
-            <p className='mt-4 text-lg md:text-2xl text-justify text-gray-700'>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque culpa tempora natus, molestiae totam
-              provident quam, nisi, eum minus exercitationem atque neque tenetur blanditiis! Consequatur aliquid possimus
-              delectus sapiente impedit.
+            <p className='mt-4 text-lg md:text-xl text-justify text-gray-700'>
+            ALP-PRO Team je vodeća alpinistička firma specijalizovana za visinske poslove izvan domena alpinizma. 
+            Pružamo širok spektar usluga na visinama, od molersko-fasaderskih radova do pranja prozora i održavanja konstrukcija. 
+            Sa stručnim timom i vrhunskom opremom, garantujemo efikasnost i visok standard u izvođenju radova.
             </p>
           </Reveal>
           
