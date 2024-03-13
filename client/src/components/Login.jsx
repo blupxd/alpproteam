@@ -39,10 +39,10 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="bg-gray-900 p-8 rounded-md shadow-md w-full max-w-md">
-        <h2 className="text-2xl mb-6 text-white text-center">Login</h2>
-        <form>
+    <div className="min-h-screen bg-gray-900">
+      <div className="p-8 flex flex-col mx-auto items-center justify-center max-w-md">
+        <h2 className="text-2xl mt-24 mb-6 text-white text-center">Login</h2>
+        <form className='w-96' onSubmit={handleLogin}>
           <div className="mb-4">
             <label htmlFor="username" className="block text-white font-medium mb-2">
               Korisničko ime:

@@ -11,7 +11,7 @@ firebase.initializeApp(config);
 const storage = getStorage();
 
 const upload = multer({ storage: multer.memoryStorage() });
-router.use(upload.any())
+
 
 function verifyToken(req, res, next) {
     const authHeader = req.headers['authorization'];
