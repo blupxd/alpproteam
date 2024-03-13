@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { upaliGaleriju } from '../actions/galerijaAction';
+import logo from '../images/logophone.png'
 
 const MobileNavbar = () => {
   const links = ['Početna', 'O nama', 'Usluge', 'Kontakt'];
@@ -20,9 +21,9 @@ const MobileNavbar = () => {
 
   return (
     <div style={{ zIndex: 100 }} className='top-0 right-0 bottom-0 left-0 h-0 lg:hidden fixed w-full'>
-      <div className='relative top-0 z-10 flex flex-col items-center border-b border-blue-300 py-5 bg-white justify-center w-full'>
-        <div className='bg-blue-600 px-12 py-2'>
-          <h1 className='text-white font-bold'>ALP-PRO Team</h1>
+      <div className='relative top-0 z-10 flex flex-col items-center border-b border-blue-300 py-2 bg-white justify-center w-full'>
+        <div className=''>
+          <img src={logo} alt="logo" className='w-12' />
         </div>
         <button
           style={{ transform: `rotate(${menu ? '90deg' : '0deg'})`}}
@@ -65,7 +66,7 @@ const MobileNavbar = () => {
         </ul>
         <div className='bg-blue-600 max-w-max mx-auto text-white mt-12 flex items-center justify-center gap-4 px-8 py-4'>
           <FontAwesomeIcon icon={faPhone} />
-          <p className='text-xl font-semibold'>+381 61 123 4567</p>
+          <a href='tel:+381 60 3029 724' className='text-xl font-semibold'>+381 60 3029 724</a>
         </div>
       </div>
     </div>

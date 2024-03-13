@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaintRoller } from '@fortawesome/free-solid-svg-icons';
 import { upaliGaleriju } from '../actions/galerijaAction';
 import { useDispatch } from 'react-redux';
 import { Reveal } from './Reveal.tsx';

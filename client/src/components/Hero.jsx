@@ -1,16 +1,17 @@
 import React from 'react';
 import hero from '../images/image2.jpg';
 import { Reveal } from './Reveal.tsx';
-
+import logo from '../images/logo.png'
 const Hero = () => {
   return (
     <div id="pocetna" className='bg-white mt-24 max-h-[1000px] md:mt-20 mb-24'>
         <div className='grid grid-cols-1 md:grid-cols-2 my-4'>
             <div className='p-8 md:p-12 md:my-0 my-14 flex md:text-left text-center md:items-start items-center justify-center flex-col gap-4'>
                 <Reveal>
-                    <h1 className='text-gray-800 font-semibold text-7xl md:text-8xl'>
+                    {/* <h1 className='text-gray-800 font-semibold text-7xl md:text-8xl'>
                         <span className='text-blue-600 font-bold'>ALP-PRO</span> Team
-                    </h1>
+                    </h1> */}
+                    <img src={logo} className='w-[30rem]' alt="logo" />
                 </Reveal>
                 <Reveal>
                     <h3 className='w-96 md:border-b-0 md:border-l-[4px] p-4 md:pl-4 border-amber-500 text-gray-600 font-light text-3xl md:text-2xl'>

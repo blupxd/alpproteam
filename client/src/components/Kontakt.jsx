@@ -34,10 +34,10 @@ const Kontakt = () => {
                 <h1 className='text-xl text-center my-6 font-semibold text-gray-800'>Putem telefona</h1>
                 <p className='w-64 text-center'>Zainteresovani ste za naše usluge? Nazovite nas na naš broj.</p>
                 <a
-                    href="tel:+381 61 1234 567"
+                    href="tel:+381 60 3029 724"
                     className='text-blue-400 px-4 py-2 border border-blue-400 text-base transition duration-300 hover:bg-blue-400 hover:text-white'
                 >
-                    +381 61 1234 567
+                    +381 60 3029 724
                 </a>
             </div>
         </Reveal>
@@ -47,10 +47,10 @@ const Kontakt = () => {
                 <h1 className='text-xl text-center my-6 font-semibold text-gray-800'>Putem mail-a</h1>
                 <p className='w-64 text-center'>Zainteresovani ste za naše usluge? Pišite nam na naš mejl</p>
                 <a
-                    href="mailto:mail@mail.com"
+                    href="mailto:ivanperapetrovic@gmail.com"
                     className='text-amber-500 text-base px-4 py-2 border border-amber-500 transition duration-300 hover:bg-amber-500 hover:text-white'
                 >
-                    mail@mail.com
+                    ivanperapetrovic@gmail.com
                 </a>
             </div>
         </Reveal>

@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { upaliGaleriju } from '../actions/galerijaAction';
+import logo2 from '../images/logo2.png'
 const Footer = () => {
     const links = ['Početna', 'O nama', 'Usluge', 'Kontakt'];
     const dispatch = useDispatch();
@@ -56,15 +57,15 @@ const Footer = () => {
         </div>
         <div className='p-2 flex flex-col items-center justify-start gap-8'>
             <h1 className='text-lg text-white border-b-[2px] border-blue-500 pb-1'>Kontakt</h1>
-            <ul className='flex flex-col gap-4'>
+            <ul className='flex flex-col items-center justify-center gap-4'>
                 <li>
-                    <a className='link-underlinetext-xs pb-1' href="mailto:mail@mail.com">
-                        <FontAwesomeIcon icon={faEnvelope} /> mail@mail.com
+                    <a className='link-underline text-xs pb-1' href="mailto:ivanperapetrovic@gmail.com">
+                        <FontAwesomeIcon icon={faEnvelope} /> ivanperapetrovic@gmail.com
                     </a>
                 </li>
                 <li>
-                    <a className='link-underlinetext-xs pb-1' href="tel:+381 61 1234 567">
-                        <FontAwesomeIcon icon={faPhone} /> +381 61 1234 567
+                    <a className='link-underline text-xs pb-1' href="tel:+381 60 3029 724">
+                        <FontAwesomeIcon icon={faPhone} /> +381 60 3029 724
                     </a>
                 </li>
             </ul>
@@ -72,7 +73,7 @@ const Footer = () => {
         </div>
     </div>
     <div className='bg-gray-950/40 text-gray-700 text-xs flex flex-col items-center justify-center text-center w-full p-12'>
-        {/* <img src={logo2} alt="logo" className='w-12 mb-4 opacity-20'/> */}
+        <img src={logo2} alt="logo" className='w-32 mb-4 opacity-20'/>
         <h1>© 2024 AL-PRO Team</h1>
     </div>
 </div>
