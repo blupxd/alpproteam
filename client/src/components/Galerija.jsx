@@ -59,11 +59,11 @@ const Galerija = () => {
                     <FontAwesomeIcon icon={faClose} />
                 </button>
                 <h1 className='text-4xl font-bold text-amber-500'>Galerija</h1>
-                <div className='flex flex-col gap-2'>
+                <div className='flex flex-col w-96 gap-2'>
                   <label htmlFor="filter" className='text-gray-600 font-semibold'>Filtriraj</label>
                     <select
                         name='filter'
-                        className='p-2 focus:outline-none text-gray-500 border-gray-400 border text-sm'
+                        className='px-4 py-2 focus:outline-none text-gray-500 border-gray-400 border text-md'
                         value={selectedPosao}
                         onChange={(e) => setSelectedPosao(e.target.value)}
                     >
@@ -75,7 +75,7 @@ const Galerija = () => {
                         ))}
                     </select>
                 </div>
-                <div className='border gap-12 border-gray-300 overflow-auto h-96 grid grid-cols-1 md:grid-cols-3 p-2'>
+                <div className='gap-12 overflow-auto h-96 grid grid-cols-1 md:grid-cols-3 p-2'>
                     {filteredSlike.map((slika, key) => (
                         <div className='w-72 h-72 md:w-48 cursor-pointer md:h-48 overflow-hidden border-gray-300 rounded-lg shadow-md shadow-black/30 border' key={key} onClick={() => openSlikaModal(slika)}>
                             <img src={slika.slikaURL} alt={slika.slikaAlt} />

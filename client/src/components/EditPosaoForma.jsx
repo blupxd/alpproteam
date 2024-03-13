@@ -9,7 +9,7 @@ const EditPosaoForma = ({ selectedPosao, onClose, onEdit }) => {
   const [uspeh, setUspeh] = useState('');
   const [greska, setGreska] = useState('');
   const [dugmeOnemoguceno, setDugmeOnemoguceno] = useState(false);
-
+  const [brojKaraktera, setBrojKaraktera] = useState(selectedPosao.opis.length);
   useEffect(() => {
     if (selectedPosao) {
       setNaziv(selectedPosao.naziv);
@@ -22,7 +22,7 @@ const EditPosaoForma = ({ selectedPosao, onClose, onEdit }) => {
 
   const handleInputChange = (e) => {
     const { name, value, files } = e.target;
-  
+    setBrojKaraktera(e.target.value.length);
     if (name === 'slika' && files && files.length > 0) {
       setSlika(files[0]);
       setPreviewSlika(URL.createObjectURL(files[0]));
@@ -107,11 +107,13 @@ const EditPosaoForma = ({ selectedPosao, onClose, onEdit }) => {
               height: "100px"
             }}
             id='opis'
+            maxlength="320"
             value={opis}
             onChange={(e) => handleInputChange(e)}
             className='p-2 border focus:outline-none rounded-md w-full'
             name='opis'
           />
+           <p className="text-sm text-white">{brojKaraktera}/320 karaktera</p>
         </div>
         <div className='mb-4'>
           <label className='text-white text-sm' htmlFor='slika'>

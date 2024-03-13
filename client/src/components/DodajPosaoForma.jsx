@@ -7,7 +7,8 @@ const DodajPosaoForma = ({ onDodaj }) => {
   const [slika, setSlika] = useState(null);
   const [uspeh, setUspeh] = useState('');
   const [greska, setGreska] = useState('');
-  const [dugmeOnemoguceno, setDugmeOnemoguceno] = useState(false); // Dodajte stanje za onemogućavanje dugmeta
+  const [dugmeOnemoguceno, setDugmeOnemoguceno] = useState(false);
+  const [brojKaraktera, setBrojKaraktera] = useState(0);
 
   const handleDodajPosao = async () => {
     try {
@@ -17,7 +18,15 @@ const DodajPosaoForma = ({ onDodaj }) => {
         return;
       }
 
-      setDugmeOnemoguceno(true); // Onemogući dugme prilikom slanja zahteva
+      // Provera veličine slike
+      const limit = 4.5 * 1024 * 1024; // 4.5 MB u bajtovima
+      if (slika.size > limit) {
+        setGreska('Veličina slike premašuje dozvoljeni limit od 4.5 MB.');
+        setUspeh('');
+        return;
+      }
+
+      setDugmeOnemoguceno(true);
 
       const formData = new FormData();
       formData.append('naziv', naziv);
@@ -43,7 +52,7 @@ const DodajPosaoForma = ({ onDodaj }) => {
       setGreska('Došlo je do greške prilikom dodavanja posla.');
       console.error(error);
     } finally {
-      setDugmeOnemoguceno(false); // Omogući dugme nakon završetka zahteva, bez obzira na ishod
+      setDugmeOnemoguceno(false);
     }
   };
 
@@ -71,14 +80,18 @@ const DodajPosaoForma = ({ onDodaj }) => {
           </label>
           <textarea
             id='opis'
+            maxlength="320"
             value={opis}
-            onChange={(e) => setOpis(e.target.value)}
+            onChange={(e) => {
+              setOpis(e.target.value)
+              setBrojKaraktera(e.target.value.length);}}
             className='p-2 border rounded-md w-full'
           />
+          <p className="text-sm text-white">{brojKaraktera}/320 karaktera</p>
         </div>
         <div className='mb-4'>
           <label className='text-white text-sm' htmlFor='slika'>
-            Slika:
+            Slika: <span className='font-bold text-amber-500'>(limit 4.5MB)</span>
           </label>
           <input
             type='file'
@@ -93,7 +106,7 @@ const DodajPosaoForma = ({ onDodaj }) => {
           className={`text-white bg-green-500 p-2 rounded-md ${dugmeOnemoguceno ? 'cursor-not-allowed bg-gray-500' : ''}`}
           disabled={dugmeOnemoguceno}
         >
-          Dodaj posao
+          {dugmeOnemoguceno ? 'Slanje...' : 'Dodaj posao'}
         </button>
       </form>
     </div>
