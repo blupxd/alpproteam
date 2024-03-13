@@ -20,7 +20,7 @@ const MobileNavbar = () => {
 
   return (
     <div style={{ zIndex: 100 }} className='top-0 right-0 bottom-0 left-0 h-0 lg:hidden fixed w-full'>
-      <div className='relative z-10 flex flex-col items-center border-b border-blue-300 py-5 bg-white justify-center w-full'>
+      <div className='relative top-0 z-10 flex flex-col items-center border-b border-blue-300 py-5 bg-white justify-center w-full'>
         <div className='bg-blue-600 px-12 py-2'>
           <h1 className='text-white font-bold'>ALP-PRO Team</h1>
         </div>
