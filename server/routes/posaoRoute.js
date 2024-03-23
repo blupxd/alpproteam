@@ -1,6 +1,6 @@
 const express = require('express')
 const firebase = require('firebase/app')
-const config = require('../firebase-config.json')
+const config = require('../firebase-config')
 const { getStorage, ref, uploadBytesResumable, getDownloadURL, deleteObject } = require('firebase/storage')
 const multer = require('multer')
 const Posao = require('../models/PosaoModel')
