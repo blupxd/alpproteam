@@ -11,10 +11,10 @@ const Kontakt = () => {
       <div className='bg-blue-500 grid relative grid-cols-1 md:grid-cols-2 h-[30rem] overflow-hidden'>
         <Reveal>
         <div className='flex flex-col items-center md:items-start gap-2 py-24 px-12 text-center md:text-left'>
-          <h1 className='text-6xl md:text-5xl lg:text-6xl font-semibold text-white'>Kontaktirajte nas</h1>
+          <h1 className='text-4xl md:text-4xl lg:text-6xl font-semibold text-white'>Kontaktirajte nas</h1>
           <hr className='w-12 hidden md:inline-block border-[2px] border-amber-500'/>
           <Reveal>
-          <p className='text-2xl mt-6 w-96 md:w-64 lg:w-96 text-white text-center md:text-justify'>Ukoliko želite da sarađujete sa nama, evo načina na koje možete stupiti u kontakt.</p>
+          <p className='text-xl mt-6 text-clip text-white text-center md:text-justify'>Ukoliko želite da sarađujete sa nama, evo načina na koje možete stupiti u kontakt.</p>
           </Reveal>
         </div>
         </Reveal>
@@ -27,7 +27,7 @@ const Kontakt = () => {
         style={{
           zIndex: 30
         }}
-        className='grid grid-cols-1 md:grid-cols-2 mx-4 md:mx-12 absolute bottom-0 md:bottom-32 right-0 left-0 gap-4'>
+        className='grid grid-cols-1 md:grid-cols-2 mx-4 md:mx-12 absolute bottom-0 md:bottom-20 right-0 left-0 gap-4'>
         <Reveal className='w-full'>
             <div className='p-12 bg-white w-full border border-gray-200  shadow-md flex flex-col gap-4 items-center justify-center shadow-black/30'>
                 <FontAwesomeIcon icon={faPhone} className='text-5xl text-gray-800' />

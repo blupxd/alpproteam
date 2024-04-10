@@ -23,11 +23,11 @@ const MobileNavbar = () => {
     <div style={{ zIndex: 100 }} className='top-0 right-0 bottom-0 left-0 h-0 lg:hidden fixed w-full'>
       <div className='relative top-0 z-10 flex flex-col items-center border-b border-blue-300 py-2 bg-white justify-center w-full'>
         <div className=''>
-          <img src={logo} alt="logo" className='w-12' />
+          <img src={logo} alt="logo" className='w-10' />
         </div>
         <button
           style={{ transform: `rotate(${menu ? '90deg' : '0deg'})`}}
-          className={`transition-transform duration-200 absolute right-4 text-blue-700 text-5xl`}
+          className={`transition-transform duration-200 absolute right-4 text-blue-700 text-4xl`}
           onClick={() => setMenu(!menu)}
         >
           {menu ? <FontAwesomeIcon icon={faClose} /> : <FontAwesomeIcon icon={faBars} />}
@@ -37,7 +37,7 @@ const MobileNavbar = () => {
         style={{ overflow: 'hidden' }}
         className={`transition-transform bg-white py-12 w-full ease-in-out duration-300 h-screen ${menu ? 'translate-x-0' : 'translate-x-full'}`}
       >
-        <ul className='flex flex-col items-center text-3xl gap-12'>
+        <ul className='flex flex-col items-center text-2xl gap-12'>
           {links.map((link, key) => (
             <li key={key}>
               <a

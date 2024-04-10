@@ -18,7 +18,7 @@ const Navbar = () => {
       };
       const otvori = useSelector((state) => state.isOpen)
   return (
-    <div style={{zIndex:90}} className='fixed w-full top-0 bg-white hidden px-24 py-2 border-b border-blue-300 lg:flex items-center justify-between'>
+    <div style={{zIndex:90}} className='fixed w-full top-0 bg-white hidden px-24 py-2 border-b border-blue-500 lg:flex items-center justify-between'>
         <div className=''>
             <img src={logo} className='w-12' alt="" />
         </div>

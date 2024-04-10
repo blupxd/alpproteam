@@ -19,7 +19,7 @@ const Usluge = () => {
         fetchPoslovi()
     }, [])
   return (
-      <div id="usluge" className='bg-blue-950 px-4 py-12 md:p-12 shadow-md shadow-black/20 my-48 mx-0 flex flex-col justify-center items-center'>
+      <div id="usluge" className='bg-blue-950 px-4 py-12 md:p-12 shadow-md shadow-black/20 mx-0 flex flex-col justify-center items-center'>
         <Reveal>
             <h1 className='text-7xl md:text-left text-center font-bold text-blue-200'>NAŠE <span className='text-blue-400'>USLUGE</span></h1>
         </Reveal>
@@ -29,8 +29,8 @@ const Usluge = () => {
         poslovi.map((posao, key) => (
             <Reveal key={key}>
             <div className="bg-blue-950 border border-blue-300 p-8 flex flex-col items-center justify-between text-white text-center w-full shadow-md h-[400px]">
-                <h1 className="text-3xl my-4 h-[50px] font-bold">{posao.naziv}</h1>
-                <p className="font-light w-80 p-4 text-sm text-center break-words overflow-hidden">
+                <h1 className="text-3xl font-bold">{posao.naziv}</h1>
+                <p className="font-light text-clip italic px-4 text-sm text-center break-words overflow-hidden">
                 {posao.opis}
                 </p>
                 <button

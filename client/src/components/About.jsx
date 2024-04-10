@@ -92,8 +92,8 @@ const About = () => {
         </div>
         </Reveal>
         <Reveal>
-        <div className='h-72 md:h-96 bg-black'>
-          <img src={image} alt='image3' className='object-cover w-full opacity-70' />
+        <div className='h-96 overflow-hidden bg-black m-12 md:block hidden'>
+          <img src={image} alt='image3' className='object-cover h-96 w-full' />
         </div>
         </Reveal>
       </div>
