@@ -74,7 +74,7 @@ const Footer = () => {
     </div>
     <div className='bg-gray-950/40 text-gray-700 text-xs flex flex-col items-center justify-center text-center w-full p-12'>
         <img src={logo2} alt="logo" className='w-32 mb-4 opacity-20'/>
-        <h1>© 2024 AL-PRO Team</h1>
+        <h1>© 2024 ALP Pro-Tim</h1>
     </div>
 </div>
   )
