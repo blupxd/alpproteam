@@ -24,7 +24,7 @@ const Usluge = () => {
             <h1 className='text-7xl md:text-left text-center font-bold text-blue-200'>NAŠE <span className='text-blue-400'>USLUGE</span></h1>
         </Reveal>
         <hr className='border-blue-400 w-40 my-4 mx-auto border-[2px]'/>
-        <div className='grid grid-cols-1 md:grid-cols-3 m-0 md:m-8 gap-4'>
+        <div className='grid grid-cols-1 md:grid-cols-3 m-8 gap-4'>
         {poslovi &&
         poslovi.map((posao, key) => (
             <Reveal key={key}>

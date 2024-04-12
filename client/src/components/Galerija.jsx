@@ -1,4 +1,8 @@
-import { faClose } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronLeft,
+  faChevronRight,
+  faClose,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,6 +17,7 @@ const Galerija = () => {
   const [poslovi, setPoslovi] = useState([]);
   const [selectedPosao, setSelectedPosao] = useState("");
   const [selectedSlika, setSelectedSlika] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     if (filter) {
@@ -66,6 +71,18 @@ const Galerija = () => {
     }
   };
 
+  const handlePrevClick = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? filteredSlike.length - 1 : prevIndex - 1
+    );
+  };
+
+  const handleNextClick = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === filteredSlike.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
   return (
     <div
       onClick={handleBgClick}
@@ -102,10 +119,10 @@ const Galerija = () => {
           </select>
         </div>
         <div className="gap-12 overflow-auto h-96 grid grid-cols-1 md:grid-cols-3 p-2">
-          {filteredSlike.map((slika, key) => (
+          {filteredSlike.map((slika, index) => (
             <div
-              className="w-72 h-72 md:w-48 cursor-pointer md:h-48 overflow-hidden border-gray-300 rounded-lg shadow-md shadow-black/30 border"
-              key={key}
+              className="w-full h-72 md:w-48 cursor-pointer md:h-48 overflow-hidden border-gray-300 rounded-lg shadow-md shadow-black/30 border"
+              key={index}
               onClick={() => openSlikaModal(slika)}
             >
               <img src={slika.slikaURL} alt={slika.slikaAlt} />
@@ -117,7 +134,7 @@ const Galerija = () => {
         <div
           onClick={(e) => {
             if (e.target === e.currentTarget) {
-              closeSlikaModal()
+              closeSlikaModal();
             }
           }}
           className="fixed top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center"
@@ -130,10 +147,25 @@ const Galerija = () => {
               <FontAwesomeIcon icon={faClose} />
             </div>
             <img
-              src={selectedSlika.slikaURL}
-              alt={selectedSlika.slikaAlt}
-              className="md:h-[35rem] h-full max-h-[35rem]"
+              src={filteredSlike[currentImageIndex].slikaURL}
+              alt={filteredSlike[currentImageIndex].slikaAlt}
+              className="md:h-[35rem] h-[30rem] max-h-[35rem]"
             />
+            <div className="top-1/2 absolute w-full flex items-center justify-between">
+              <button
+                className="text-2xl p-2 bg-gray-800 rounded-full w-16 h-16 opacity-75 flex items-center justify-center hover:opacity-100 focus:outline-none transition-colors duration-300"
+                onClick={handlePrevClick}
+              >
+                <FontAwesomeIcon icon={faChevronLeft} className="text-white" />
+              </button>
+
+              <button
+                className="text-2xl p-2 bg-gray-800 rounded-full w-16 h-16 opacity-75 flex items-center justify-center hover:opacity-100 focus:outline-none transition-colors duration-300"
+                onClick={handleNextClick}
+              >
+                <FontAwesomeIcon icon={faChevronRight} className="text-white" />
+              </button>
+            </div>
           </div>
         </div>
       )}

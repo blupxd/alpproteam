@@ -27,7 +27,7 @@ const Hero = () => {
               </a>
               <a
                 href="/#usluge"
-                className="text-xl px-8 py-2 rounded-md text-white bg-blue-500 border border-blue-500 hover:bg-white hover:border-blue-400 hover:text-blue-500 transition duration-300"
+                className="text-xl px-8 py-2 rounded-md text-white bg-blue-700 border border-blue-700 hover:bg-white hover:border-blue-700 hover:text-blue-700 transition duration-300"
               >
                 Usluge
               </a>
