@@ -226,7 +226,7 @@ const Panel = () => {
           <h1 className='text-white text-xl md:text-3xl'>Poslovi:</h1>
           <DodajPosaoForma onDodaj={() => fetchData()} />
 
-          {poslovi && poslovi.map((posao, key) => (
+          {poslovi && poslovi.reverse().map((posao, key) => (
             <div key={key} className=' min-w-0 text-white mx-auto font-light bg-black py-2 px-4 grid grid-cols-1 lg:grid-cols-5 items-center gap-4 md:gap-2 w-full'>
               <div className='w-full lg:w-32 flex items-center h-24 lg:h-8 overflow-hidden'>
                 <img src={posao.slika} className='w-full h-full object-cover' alt={posao.naziv} />
@@ -255,7 +255,7 @@ const Panel = () => {
           <DodajSlikuForma prviPoslovi={poslovi} onSlika={() => fetchData()}/>
           <div className='grid h-96 overflow-auto grid-cols-1 md:grid-cols-3 gap-6 p-6 md:p-4 border border-gray-800 rounded-lg'>
             {slike &&
-              slike.map((slika, key) => (
+              slike.reverse().map((slika, key) => (
                 <div key={key} className='w-full h-64 relative overflow-hidden mb-6'>
                   <img src={slika.slikaURL} alt={slika.slikaAlt} className='w-full h-full object-cover' />
                   <div className='absolute flex items-center justify-center top-0 bottom-0 right-0 left-0 bg-black/50'>

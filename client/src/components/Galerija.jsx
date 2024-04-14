@@ -146,11 +146,13 @@ const Galerija = () => {
             >
               <FontAwesomeIcon icon={faClose} />
             </div>
-            <img
-              src={filteredSlike[currentImageIndex].slikaURL}
-              alt={filteredSlike[currentImageIndex].slikaAlt}
-              className="md:h-[35rem] h-[30rem] max-h-[35rem]"
-            />
+            {filteredSlike[currentImageIndex] && (
+              <img
+                src={filteredSlike[currentImageIndex].slikaURL}
+                alt={filteredSlike[currentImageIndex].slikaAlt}
+                className="md:h-[35rem] h-[30rem] max-h-[35rem]"
+              />
+            )}
             <div className="top-1/2 absolute w-full flex items-center justify-between">
               <button
                 className="text-2xl p-2 bg-gray-800 rounded-full w-16 h-16 opacity-75 flex items-center justify-center hover:opacity-100 focus:outline-none transition-colors duration-300"
